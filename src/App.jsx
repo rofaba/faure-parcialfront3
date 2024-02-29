@@ -1,10 +1,20 @@
+import React from "react";
+import Form from "./Form";
+import Card from "./Card";
+import {useState} from "react";
+
 function App() {
-  //Aqui deberias agregar los estados y los handlers para los inputs
+  const [cardData, setCardData] = useState(null);
+
+  const handleForm = (data) => { setCardData(data);
+  };
 
   return (
     <div className="App">
-      <h1>Elige un color</h1>
-      <form>{/* aqui deberias escribir tu codigo */}</form>
+      <h2 style={{textAlign:'center'}}>Preferencia de automóviles </h2>
+      <h2 style={{textAlign:'center'}}> 🚗  💨  </h2> 
+      <Form onFormSubmit={handleForm} />
+      {cardData && <Card {...cardData} />}
     </div>
   );
 }
